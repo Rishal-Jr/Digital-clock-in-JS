@@ -1,0 +1,28 @@
+<h1><center><div id="my" onload="showtime()"></div></h1></center>
+<center><h3 id="d1"></h3></center>
+<script>
+    function showtime(){
+        var date=new Date();
+        document.getElementById("d1").innerHTML=date;
+        var h= date.getHours();
+         var m = date.getMinutes();
+          var s= date.getSeconds();
+          var session="AM";
+
+          if(h==0){
+            h=12
+          }
+          if(h>12){
+            h=h-12
+            session="PM"
+          }
+h=(h<10)?"0" +h:h;
+        m = (m < 10) ? "0" + m : m;
+        s = (s < 10) ? "0" + s : s;
+
+       var time= h+":"+m+":"+s+" "+session;
+       document.getElementById("my").innerHTML=time;
+       setTimeout(showtime,1000)
+    }
+    showtime();
+</script>
